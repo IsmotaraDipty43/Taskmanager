@@ -1,8 +1,8 @@
-# Task Manager Application
+# TaskFlow
 
 ## Project Description
 
-This Task Manager Application allows users to manage their tasks seamlessly with a clean, minimalistic, and fully responsive UI. Users can:
+TaskFlow is a task manager Application, allows users to manage their tasks seamlessly with a clean, minimalistic, and fully responsive UI. Users can:
 
 - **Add, edit, and delete tasks:** Create, update, and remove tasks with details like title, description, task type, and estimated time.
 - **Reorder tasks:** Drag and drop tasks to reorder them within a category.
