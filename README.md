@@ -30,12 +30,11 @@ This project tests your ability to handle frontend interactivity, backend data m
 
 - Node.js
 - Express
-- Firebase
 - MongoDB 
 - Socket.io
 - JSON Web Tokens (JWT)
 - CORS
-- SweetAlert2
+
 
 ### Frontend Dependencies
 
@@ -45,6 +44,8 @@ This project tests your ability to handle frontend interactivity, backend data m
 - Socket.io-client
 - @hello-pangea/dnd (Drag-and-Drop)
 - Tailwind CSS
+- Firebase
+- SweetAlert2
 
 ## Installation Steps
 
