@@ -35,15 +35,16 @@ const Sociallogin = () => {
         <span className="w-full border-t border-gray-300"></span>
       </div>
 
-      <div className="flex justify-center">
-        <button
-          onClick={handleGoogle}
-          className="flex items-center gap-3 w-full bg-red-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-red-700 transition"
-        >
-          <FaGoogle className="text-lg" />
-          <span>Google Login</span>
-        </button>
-      </div>
+      <div className="flex justify-center items-center">
+  <button
+    onClick={handleGoogle}
+    className="flex justify-center items-center gap-3 w-full bg-red-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-red-700 transition"
+  >
+    <FaGoogle className="text-lg" />
+    <span>Google Login</span>
+  </button>
+</div>
+
     </div>
   );
 };

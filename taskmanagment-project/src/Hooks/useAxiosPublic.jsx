@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 const axiosPublic = axios.create({
-     baseURL:'http://localhost:5001'
+     baseURL:'https://jobtask-red.vercel.app'
 })
 
 const useAxiosPublic = () => {

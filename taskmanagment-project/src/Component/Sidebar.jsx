@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import { FaTasks, FaCheckCircle, FaClock, FaSpinner, FaPlusCircle, FaBars, FaChartLine, FaRegUserCircle } from "react-icons/fa";
-
+import { IoMenu } from "react-icons/io5";
 const Sidebar = () => {
   const linkClasses = ({ isActive }) =>
     `flex items-center gap-3 py-3 px-4 rounded-lg text-lg font-semibold transition-all duration-300 ${
@@ -11,8 +11,8 @@ const Sidebar = () => {
     }`;
 
   return (
-    <div className="bg-purple-500 text-white w-full min-h-screen p-6 rounded-r-2xl shadow-lg">
-      <h2 className="text-2xl font-semibold flex items-center gap-3 mb-8">
+    <div className="bg-purple-500 text-white w-full  h-auto md:min-h-screen p-6 rounded-r-2xl shadow-lg">
+      <h2 className="text-2xl font-semibold flex items-center  gap-3 mb-8">
         <FaTasks className="text-3xl" /> Task Manager
       </h2>
       <nav className="space-y-4">
@@ -31,7 +31,8 @@ const Sidebar = () => {
 
         {/* Stats or Task Management Stats */}
         <NavLink to="/" className={linkClasses}>
-          <FaChartLine className="text-xl" /> Home
+        <IoMenu  className="text-xl text-white" />
+          Home
         </NavLink>
       </nav>
     </div>

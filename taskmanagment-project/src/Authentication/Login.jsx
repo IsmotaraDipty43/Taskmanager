@@ -96,7 +96,7 @@ const Login = () => {
           {/* Redirect to Registration */}
           <p className="text-center mt-4 text-gray-700 text-sm">
             New here?{' '}
-            <Link className="text-blue-700 font-bold hover:underline" to="/reg">
+            <Link className="text-blue-700 font-bold hover:underline" to="/signup">
               Create a New Account
             </Link>
           </p>
