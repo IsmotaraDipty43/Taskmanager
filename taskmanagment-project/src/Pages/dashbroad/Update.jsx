@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
-import Swal from 'sweetalert2'; // Import SweetAlert
+import Swal from 'sweetalert2'; 
 import { useNavigate, useParams } from 'react-router-dom';
 
 const Update = () => {
-  const { id } = useParams(); // Get the task ID from URL
+  const { id } = useParams(); 
   const axiosSecure = useAxiosSecure();
    const navigate = useNavigate()
 
@@ -16,15 +16,14 @@ const Update = () => {
     taskType: '',
    estimatedTime: '',
   });
-  const [loading, setLoading] = useState(true); // To show loading state until task data is fetched
+  const [loading, setLoading] = useState(true);
 
-  // Fetch the task details when the component mounts
   useEffect(() => {
     const fetchTask = async () => {
       try {
         const response = await axiosSecure.get(`/task/${id}`);
         if (response.data.success) {
-          setTaskData(response.data.task); // Populate the form with task details
+          setTaskData(response.data.task); 
         }
       } catch (error) {
         console.error("Error fetching task data:", error);
@@ -35,7 +34,7 @@ const Update = () => {
     fetchTask();
   }, [id, axiosSecure]);
 
-  // Handle form input changes
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setTaskData((prevData) => ({
@@ -44,7 +43,7 @@ const Update = () => {
     }));
   };
 
-  // Handle form submission to update the task
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -70,7 +69,6 @@ const Update = () => {
     }
   };
 
-  // Show loading spinner while fetching task data
   if (loading) {
     return <div>Loading...</div>;
   }

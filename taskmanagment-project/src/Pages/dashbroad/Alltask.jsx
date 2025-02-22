@@ -15,7 +15,7 @@ const AllTasks = () => {
   const [inProgressTasks, setInProgressTasks] = useState([]);
   const [doneTasks, setDoneTasks] = useState([]);
 
-  // Map droppable IDs to the category names used in the database
+
   const categoryMapping = {
     toDoTasks: "To-Do",
     inProgressTasks: "In Progress",
@@ -25,17 +25,17 @@ const AllTasks = () => {
   useEffect(() => {
     if (!user || !user.email) return;
 
-    // Initialize socket connection
+
     socketRef.current = io("https://jobtask-red.vercel.app");
 
-    // Listen for task changes from the backend
+
     socketRef.current.on("taskChanged", (change) => {
       fetchTasks("To-Do", setToDoTasks);
       fetchTasks("In Progress", setInProgressTasks);
       fetchTasks("Done", setDoneTasks);
     });
 
-    // Function to fetch tasks for a given category
+
     const fetchTasks = async (category, setTasks) => {
       try {
         const response = await axiosSecure.get(
@@ -47,7 +47,7 @@ const AllTasks = () => {
       }
     };
 
-    // Initial fetch
+
     fetchTasks("To-Do", setToDoTasks);
     fetchTasks("In Progress", setInProgressTasks);
     fetchTasks("Done", setDoneTasks);
@@ -57,7 +57,7 @@ const AllTasks = () => {
     };
   }, [user, axiosSecure]);
 
-  // Delete a task
+ 
   const handleDeleteTask = async (taskId, category, setTasks) => {
     Swal.fire({
       title: "Are you sure?",
@@ -85,7 +85,7 @@ const AllTasks = () => {
     });
   };
 
-  // Handle drag-and-drop end event
+
   const handleOnDragEnd = async (result) => {
     const { destination, source, draggableId } = result;
     if (!destination) return;
@@ -93,14 +93,13 @@ const AllTasks = () => {
     const sourceCategory = source.droppableId;
     const destinationCategory = destination.droppableId;
 
-    // Map to get current tasks and their setters
+    
     const categories = {
       toDoTasks: { tasks: toDoTasks, setTasks: setToDoTasks },
       inProgressTasks: { tasks: inProgressTasks, setTasks: setInProgressTasks },
       doneTasks: { tasks: doneTasks, setTasks: setDoneTasks },
     };
 
-    // Reordering within the same category
     if (sourceCategory === destinationCategory) {
       const updatedTasks = Array.from(categories[sourceCategory].tasks);
       const [movedTask] = updatedTasks.splice(source.index, 1);
@@ -114,7 +113,7 @@ const AllTasks = () => {
           description: movedTask.description,
           taskType: movedTask.taskType,
           estimatedTime: movedTask.estimatedTime,
-          position: destination.index, // Update the position for ordering
+          position: destination.index, 
         });
         if (response.data.success) {
           socketRef.current.emit("taskChanged", {
@@ -129,7 +128,7 @@ const AllTasks = () => {
         Swal.fire("Error!", "Failed to update task order.", "error");
       }
     }
-    // Moving between categories
+
     else {
       const sourceTasks = Array.from(categories[sourceCategory].tasks);
       const destinationTasks = Array.from(categories[destinationCategory].tasks);
@@ -137,7 +136,7 @@ const AllTasks = () => {
       movedTask.category = categoryMapping[destinationCategory];
       destinationTasks.splice(destination.index, 0, movedTask);
 
-      // Update local states for both categories
+      
       categories[sourceCategory].setTasks(sourceTasks);
       categories[destinationCategory].setTasks(destinationTasks);
 

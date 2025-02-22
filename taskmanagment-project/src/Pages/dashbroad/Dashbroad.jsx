@@ -5,7 +5,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 const Dashbroad = () => {
     const navigate = useNavigate();
 
-    // Redirect to profile page when Dashbroad is loaded
+   
     useEffect(() => {
       navigate('/dashboard/profile');
     }, [navigate]);

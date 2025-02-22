@@ -8,7 +8,7 @@ import Sociallogin from '../Component/Sociallogin';
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/'; // Ensure fallback
+  const from = location.state?.from?.pathname || '/';
 
   const { signIn } = useContext(AuthContext);
 
@@ -26,7 +26,7 @@ const Login = () => {
           showClass: { popup: 'animate__animated animate__fadeInDown' },
           hideClass: { popup: 'animate__animated animate__fadeOutUp' },
         });
-        navigate(from, { replace: true }); // Redirect properly
+        navigate(from, { replace: true }); 
       })
       .catch((error) => {
         Swal.fire({

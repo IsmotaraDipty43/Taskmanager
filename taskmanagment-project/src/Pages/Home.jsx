@@ -1,8 +1,8 @@
 import React from "react";
 import { FaTasks, FaCheckCircle, FaClock, FaUserShield, FaUsers, FaStar } from "react-icons/fa";
 
-import heroImage from "../assets/h.jpg"; // Add an image in assets
-import whychoos from "../assets/why.png"; // Add an image in assets
+import heroImage from "../assets/h.jpg";
+import whychoos from "../assets/why.png"; 
 import Navbar from "../Component/Navbar";
 import { FaDollarSign, FaSmile, FaSyncAlt } from "react-icons/fa";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
@@ -10,7 +10,7 @@ import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 const Home = () => {
   return (
     <div className=" text-gray-900">
-      <Navbar /> {/* Top Navigation Bar */}
+      <Navbar /> 
 
      {/* Hero Section */}
      <section className="container mx-auto flex flex-col md:flex-row items-center justify-between py-16 px-6 md:px-12 text-black">
